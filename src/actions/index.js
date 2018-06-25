@@ -14,7 +14,7 @@ const key = 'f63a9d133e62d5885fbfa33e55c71be2';
 
 export const getWeatherData = () => dispatch => {
 
-        console.log(store.getState());
+
         const cities = store.getState().citiesReducer.cities;
 
         const ids = cities.map(city => city.id).join(',');

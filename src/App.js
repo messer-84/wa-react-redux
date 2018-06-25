@@ -11,12 +11,7 @@ import AddCityForm from "./components/AddCityForm";
 
 
 class App extends Component {
-  componentWillMount() {
-    // console.log('comp will mount');
 
-
-    // localStorage.getItem('state') && this.setState(JSON.parse(localStorage.getItem('localState')));
-  }
 
 
   componentDidMount() {
