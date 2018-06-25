@@ -25,7 +25,6 @@ const saveToLocalStorage = state => {
 };
 
 const loadFromLocalStorage = () =>{
-  console.log('load from local storage');
 
   try{
     const serializedState = localStorage.getItem('state');
@@ -34,7 +33,9 @@ const loadFromLocalStorage = () =>{
 
       return undefined;
     }
-    return JSON.parse(serializedState);
+      console.log('load from local storage', JSON.parse(serializedState));
+
+      return JSON.parse(serializedState);
   }
   catch(e){
     console.log('way - 2');
@@ -55,6 +56,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
+  console.log('===================///////////');
   console.log('subs', store.getState().citiesReducer);
   saveToLocalStorage(store.getState().citiesReducer);
 });

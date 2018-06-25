@@ -21,26 +21,28 @@ class App extends Component {
   componentDidMount() {
     // console.log('component did mount');
 
-    const date = localStorage.getItem('infoDate');
-    const infoDate = date && new Date(parseInt(date));
-    const now = new Date();
+    // const date = localStorage.getItem('infoDate');
+    // const infoDate = date && new Date(parseInt(date));
+    // const now = new Date();
+    //
+    // const dataAge = Math.round((now - infoDate) / (1000 * 60)); // in minutes
+    // const tooOld = dataAge >= 2;
+      store.dispatch(getWeatherData());
 
-    const dataAge = Math.round((now - infoDate) / (1000 * 60)); // in minutes
-    const tooOld = dataAge >= 2;
-
-    if (tooOld) {
-      console.log('data age', dataAge);
-
-      console.log('too old', tooOld);
-      const isLocalState = localStorage.getItem('state');
-      if (!isLocalState) {
-        store.dispatch(getWeatherData());
-      }
-
-
-    } else {
-      console.log(`Using data from localStorage that are ${dataAge} minutes old.`);
-    }
+    // if (tooOld) {
+    //   console.log('data age', dataAge);
+    //
+    //   console.log('too old', tooOld);
+    //   // const isLocalState = localStorage.getItem('state');
+    //
+    //     // if (!isLocalState) {
+    //     // store.dispatch(getWeatherData());
+    //   // }
+    //
+    //
+    // } else {
+    //   console.log(`Using data from localStorage that are ${dataAge} minutes old.`);
+    // }
 
 
   }
