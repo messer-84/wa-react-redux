@@ -16,12 +16,15 @@ export const getWeatherData = () => dispatch => {
 
 
     const localState = window.localStorage.getItem('reduxStore');
+
     let cities;
 
     if(localState !== null){
         cities = JSON.parse(localState).citiesReducer.cities;
 
     } else{
+        console.log('fetch');
+
         cities = store.getState().citiesReducer.cities;
         const ids = cities.map(city => city.id).join(',');
         const URL = `http://api.openweathermap.org/data/2.5/group?id=${ids}&units=metric&appid=${key}`;

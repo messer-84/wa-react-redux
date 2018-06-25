@@ -1,5 +1,5 @@
 {
-  "name": "minimal-react-webpack-babel-setup",
+  "name": "wa-react-redux",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -32,8 +32,6 @@
   "dependencies": {
     "babel-preset-env": "^1.6.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "redux-localstorage": "^0.4.1",
-    "redux-simple-localstorage1": "^1.0.1"
+    "react-dom": "^16.2.0"
   }
 }
