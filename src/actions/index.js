@@ -52,7 +52,6 @@ export const changeCity = (index) => {
 
 
 export const addCity = city => dispatch => {
-    console.log(city);
 
     const weatherData = store.getState().citiesReducer.weatherData;
 

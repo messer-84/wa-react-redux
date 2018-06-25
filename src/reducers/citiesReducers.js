@@ -23,7 +23,6 @@ export default function citiesReducer(state = initialState, action) {
         activeCityIndex: action.payload.activeCityIndex
       };
     case CHANGE_CITY:
-      console.log('from actions', action.payload);
 
       return {
         ...state,

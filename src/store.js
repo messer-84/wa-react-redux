@@ -55,5 +55,4 @@ export function configureStore(initialState) {
     return finalCreateStore(rootReducer, initial(initialState));
 }
 
-console.log('store-myIni', myInitialState);
 export const store = configureStore(myInitialState);
