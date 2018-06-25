@@ -14,7 +14,7 @@ const initialState = {
   weatherData: null,
 };
 
-export default function (state = initialState, action) {
+export default function citiesReducer(state = initialState, action) {
   switch (action.type) {
     case GET_WEATHER_DATA:
       return {

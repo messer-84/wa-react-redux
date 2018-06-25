@@ -16,11 +16,7 @@ class App extends Component {
 
   componentDidMount() {
      console.log('component did mount');
-
-
       this.props.onFetchData()
-
-
   }
 
   render() {
@@ -42,7 +38,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-    citiesReducer: state.citiesReducer
+    weatherData: state.weatherData
 });
 
 const mapDispatchToProps = dispatch =>

@@ -15,8 +15,14 @@ const key = 'f63a9d133e62d5885fbfa33e55c71be2';
 export const getWeatherData = () => dispatch => {
 
 
-        const cities = store.getState().citiesReducer.cities;
+    const localState = window.localStorage.getItem('reduxStore');
+    let cities;
 
+    if(localState !== null){
+        cities = JSON.parse(localState).citiesReducer.cities;
+
+    } else{
+        cities = store.getState().citiesReducer.cities;
         const ids = cities.map(city => city.id).join(',');
         const URL = `http://api.openweathermap.org/data/2.5/group?id=${ids}&units=metric&appid=${key}`;
         fetch(URL)
@@ -30,6 +36,9 @@ export const getWeatherData = () => dispatch => {
                     }
                 });
             });
+    }
+
+
 
 
 };

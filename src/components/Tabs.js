@@ -11,14 +11,11 @@ class Tabs extends Component {
     this.props.onChangeCity(index);
   }
   deleteCity(index){
-    console.log('del ind', index);
-
     this.props.onDeleteCity(index);
   }
 
   render() {
     const {activeCityIndex, weatherData} = this.props.citiesReducer;
-
 
     const tabs = weatherData ? weatherData.map((item, index) => {
       return (
@@ -50,7 +47,8 @@ class Tabs extends Component {
 }
 
 const mapStateToProps = state => ({
-    citiesReducer: state.citiesReducer
+    citiesReducer: state.citiesReducer,
+
 });
 
 const mapDispatchToProps = dispatch =>
