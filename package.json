@@ -33,6 +33,7 @@
     "babel-preset-env": "^1.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "redux-localstorage": "^0.4.1"
+    "redux-localstorage": "^0.4.1",
+    "redux-simple-localstorage1": "^1.0.1"
   }
 }

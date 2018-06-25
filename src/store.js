@@ -1,65 +1,28 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { saveStore, initial } from 'redux-simple-localstorage1'
 
-const middleware = [thunk];
 
-const enhancer = compose(
-  applyMiddleware(...middleware),
-  window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
-
-const saveToLocalStorage = state => {
-  try{
-    const serializeState = JSON.stringify(state);
-    localStorage.setItem('state', serializeState);
-    console.log('save to local storage');
-    console.log('save - state -', serializeState);
-    console.log('=================//////////////finish');
-
-  } catch (e) {
-    console.log('error save to loc storage');
-    console.log(e);
-
-  }
+const myInitialState = {
+    activeCityIndex: 0,
+    cities: [
+        {name: "New York", id: 5128581},
+        {name: "Toronto", id: 6167865}
+    ],
+    weatherData: null,
 };
 
-const loadFromLocalStorage = () =>{
-  try{
-    const serializedState = localStorage.getItem('state');
-    if(serializedState === null){
-      console.log('way - 1');
-      // return undefined;
-      return {};
-    }
-      console.log('way-1-2');
-      console.log('load from local storage', JSON.parse(serializedState));
-      return JSON.parse(serializedState);
-  }
-  catch(e){
-
-    console.log('way-2 error load from loc storage');
-    console.log(e);
-    return undefined;
-  }
-};
+let finalCreateStore = compose(
+    applyMiddleware(thunk, saveStore('reduxStore')),
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__()
+)(createStore);
 
 
-const persistedState = loadFromLocalStorage();
-console.log('pers state', persistedState);
-
-const store = createStore(
-  rootReducer,
-  persistedState,
-  enhancer
-);
-
-store.subscribe(() => {
-  console.log('///////////=========================start');
-  console.log('subs');
-  saveToLocalStorage(store.getState().citiesReducer);
-});
+export function configureStore(initialState){
+    return finalCreateStore(rootReducer,initial(initialState))
+}
 
 
-export default store;
+export default store = configureStore(myInitialState);
