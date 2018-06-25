@@ -21,7 +21,7 @@ let finalCreateStore = compose(
 
 
 export function configureStore(initialState){
-    return finalCreateStore(rootReducer,initial(initialState))
+    return finalCreateStore(rootReducer,initial(initialState));
 }
 
 

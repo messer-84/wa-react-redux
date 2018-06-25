@@ -4,7 +4,7 @@ import {
     CHANGE_CITY,
     DELETE_CITY
 } from './types';
-import store from '../store';
+import {store} from '../store';
 
 
 const key = 'f63a9d133e62d5885fbfa33e55c71be2';
@@ -15,21 +15,21 @@ const key = 'f63a9d133e62d5885fbfa33e55c71be2';
 export const getWeatherData = () => dispatch => {
 
         console.log(store.getState());
-        // const cities = store.getState().citiesReducer.cities;
-        //
-        // const ids = cities.map(city => city.id).join(',');
-        // const URL = `http://api.openweathermap.org/data/2.5/group?id=${ids}&units=metric&appid=${key}`;
-        // fetch(URL)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         dispatch({
-        //             type: GET_WEATHER_DATA,
-        //             payload: {
-        //                 weatherData: data.list,
-        //                 activeCityIndex: 0
-        //             }
-        //         });
-        //     });
+        const cities = store.getState().citiesReducer.cities;
+
+        const ids = cities.map(city => city.id).join(',');
+        const URL = `http://api.openweathermap.org/data/2.5/group?id=${ids}&units=metric&appid=${key}`;
+        fetch(URL)
+            .then(res => res.json())
+            .then(data => {
+                dispatch({
+                    type: GET_WEATHER_DATA,
+                    payload: {
+                        weatherData: data.list,
+                        activeCityIndex: 0
+                    }
+                });
+            });
 
 
 };
