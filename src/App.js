@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Provider} from 'react-redux';
+import { connect} from 'react-redux';
 import './assets/App.scss';
-import store from './store';
+import {bindActionCreators} from 'redux';
+
 import {getWeatherData} from "./actions";
 import Tabs from './components/Tabs';
 import ShowBlock from './components/ShowBlock';
@@ -28,7 +29,8 @@ class App extends Component {
     // const dataAge = Math.round((now - infoDate) / (1000 * 60)); // in minutes
     // const tooOld = dataAge >= 2;
 
-      store.dispatch(getWeatherData());
+      // store.dispatch(getWeatherData());
+      this.props.onFetchData()
 
     // if (tooOld) {
     //   console.log('data age', dataAge);
@@ -50,7 +52,7 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
+
         <div className="container">
           <h1>Weather App</h1>
           <div className="row">
@@ -61,9 +63,19 @@ class App extends Component {
             <Tabs/>
           </div>
         </div>
-      </Provider>
+
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+    citiesReducer: state.citiesReducer
+});
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {onFetchData: getWeatherData},
+        dispatch
+    );
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

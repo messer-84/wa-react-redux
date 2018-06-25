@@ -13,16 +13,9 @@ const key = 'f63a9d133e62d5885fbfa33e55c71be2';
 // change city
 
 export const getWeatherData = () => dispatch => {
-  // const date = localStorage.getItem('infoDate');
-  // const infoDate = date && new Date(parseInt(date));
-  // const now = new Date();
+
   const cities = store.getState().citiesReducer.cities;
-  // const dataAge = Math.round((now - infoDate) / (1000 * 60)); // in minutes
-  // const tooOld = dataAge >= 2;
-  //
-  // console.log('cities in action', cities);
-  //
-  // if (tooOld) {
+
     const ids = cities.map(city => city.id).join(',');
     const URL = `http://api.openweathermap.org/data/2.5/group?id=${ids}&units=metric&appid=${key}`;
     fetch(URL)
@@ -36,9 +29,7 @@ export const getWeatherData = () => dispatch => {
           }
         });
       });
-  // } else {
-  //   console.log(`Using data from localStorage that are ${dataAge} minutes old.`);
-  // }
+
 
 };
 

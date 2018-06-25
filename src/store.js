@@ -30,7 +30,8 @@ const loadFromLocalStorage = () =>{
     const serializedState = localStorage.getItem('state');
     if(serializedState === null){
       console.log('way - 1');
-      return undefined;
+      // return undefined;
+      return {};
     }
       console.log('way-1-2');
       console.log('load from local storage', JSON.parse(serializedState));
