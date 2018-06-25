@@ -16,12 +16,7 @@ export const getWeatherData = () => dispatch => {
   // const date = localStorage.getItem('infoDate');
   // const infoDate = date && new Date(parseInt(date));
   // const now = new Date();
-  let cities = store.getState().citiesReducer.cities;
-
-
-
-
-
+  const cities = store.getState().citiesReducer.cities;
   // const dataAge = Math.round((now - infoDate) / (1000 * 60)); // in minutes
   // const tooOld = dataAge >= 2;
   //

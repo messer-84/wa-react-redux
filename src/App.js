@@ -27,6 +27,7 @@ class App extends Component {
     //
     // const dataAge = Math.round((now - infoDate) / (1000 * 60)); // in minutes
     // const tooOld = dataAge >= 2;
+
       store.dispatch(getWeatherData());
 
     // if (tooOld) {

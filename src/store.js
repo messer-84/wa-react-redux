@@ -11,35 +11,34 @@ const enhancer = compose(
 );
 
 const saveToLocalStorage = state => {
-  console.log('save to local storage');
-
   try{
     const serializeState = JSON.stringify(state);
     localStorage.setItem('state', serializeState);
+    console.log('save to local storage');
     console.log('save - state -', serializeState);
+    console.log('=================//////////////finish');
 
   } catch (e) {
+    console.log('error save to loc storage');
     console.log(e);
 
   }
 };
 
 const loadFromLocalStorage = () =>{
-
   try{
     const serializedState = localStorage.getItem('state');
     if(serializedState === null){
       console.log('way - 1');
-
       return undefined;
     }
+      console.log('way-1-2');
       console.log('load from local storage', JSON.parse(serializedState));
-
       return JSON.parse(serializedState);
   }
   catch(e){
-    console.log('way - 2');
 
+    console.log('way-2 error load from loc storage');
     console.log(e);
     return undefined;
   }
@@ -56,8 +55,8 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-  console.log('===================///////////');
-  console.log('subs', store.getState().citiesReducer);
+  console.log('///////////=========================start');
+  console.log('subs');
   saveToLocalStorage(store.getState().citiesReducer);
 });
 
