@@ -7,15 +7,7 @@ import Tabs from './components/Tabs';
 import ShowBlock from './components/ShowBlock';
 import AddCityForm from "./components/AddCityForm";
 
-// store.subscribe(() => {
 
-// const newStore = store.getState().citiesReducer;
-// console.log('new store', newStore);
-
-// localStorage.setItem('localState',
-//   JSON.stringify(newStore));
-// localStorage.setItem('infoDate', Date.now());
-// });
 
 class App extends Component {
   componentWillMount() {

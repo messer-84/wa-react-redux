@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {changeCity} from '../actions'
+
 
 class ShowBlock extends Component {
   render() {
@@ -26,23 +25,10 @@ class ShowBlock extends Component {
          <div className="item">Clouds: {oneCityData.clouds.all}%</div>
          <div className="item">Humidity: {oneCityData.main.humidity}%</div>
          <div className="item">Pressure: {oneCityData.main.pressure} hpa</div>
-{/*         <div>Geo coords:
-           <a
-             href="/weathermap?zoom=12&amp;lat=40.7306&amp;lon=-73.9867">[ {weatherData.coord.lat}, {weatherData.coord.lon} ]</a>
-         </div>*/}
        </div>
      }
 
-    // const systemCelsius = this.props.system;
 
-
-    // const toCelcius = (value, systemCelsius) => {
-    //   if (systemCelsius) {
-    //     return Math.round((value - 32) * 5 / 9) + ' °C';
-    //   } else {
-    //     return value + ' °F';
-    //   }
-    // };
 
     return (
       <div>{weatherInfo}</div>
