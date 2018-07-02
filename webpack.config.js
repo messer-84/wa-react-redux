@@ -16,25 +16,30 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-          test: /\.scss$/,
-          exclude: /node_modules/,
-          use: [
-              'style-loader',
-              'css-loader',
-              'sass-loader'
-          ]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules/antd')],
       },
       {
-          test: /\.(gif|png|jpg|jpeg|svg)$/,
-          exclude: /node_modules/,
-          include: path.resolve(__dirname, './src/assets'),
-          use: 'url-loader?limit=10000&name=assets/[name]-[hash].[ext]'
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(gif|png|jpg|jpeg|svg)$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, './src/assets'),
+        use: 'url-loader?limit=10000&name=assets/[name]-[hash].[ext]'
       }
 
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx', '.less']
   },
   output: {
     path: __dirname + '/dist',

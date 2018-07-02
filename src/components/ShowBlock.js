@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-
+import { DatePicker } from 'antd';
+import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 class ShowBlock extends Component {
   render() {
@@ -31,7 +32,10 @@ class ShowBlock extends Component {
 
 
     return (
-      <div>{weatherInfo}</div>
+      <div>
+        <DatePicker/>
+        <div>{weatherInfo}</div>
+      </div>
     );
   }
 }
