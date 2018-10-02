@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import { DatePicker } from 'antd';
+import {DatePicker, Button, Icon, Row, Col} from 'antd';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 class ShowBlock extends Component {
@@ -21,19 +21,41 @@ class ShowBlock extends Component {
           <h2>{oneCityData.name}</h2>
           <img src={iconUrl} alt=""/>
         </div>
-         <div className="item">Country: {oneCityData.sys.country}</div>
-         <div className="item">Temp: {oneCityData.main.temp} °F</div>
-         <div className="item">Clouds: {oneCityData.clouds.all}%</div>
-         <div className="item">Humidity: {oneCityData.main.humidity}%</div>
-         <div className="item">Pressure: {oneCityData.main.pressure} hpa</div>
-       </div>
-     }
-
+        <div className="item">Country: {oneCityData.sys.country}</div>
+        <div className="item">Temp: {oneCityData.main.temp} °F</div>
+        <div className="item">Clouds: {oneCityData.clouds.all}%</div>
+        <div className="item">Humidity: {oneCityData.main.humidity}%</div>
+        <div className="item">Pressure: {oneCityData.main.pressure} hpa</div>
+      </div>
+    }
 
 
     return (
       <div>
-        <DatePicker/>
+        <div>
+          <br/>
+          <h2>Datepicker</h2>
+          <DatePicker/>
+        </div>
+        <div>
+          <br/>
+          <h2>Button</h2>
+          <Button className="ant-btn-primary" type="primary">Primary</Button>
+        </div>
+        <div>
+          <br/>
+          <Icon type="caret-right" style={{ fontSize: 20, color: '#08c' }} />
+        </div>
+        <div>
+          <br/>
+          <h2>Grid</h2>
+          <Row gutter={16}>
+            <Col span={6}>Column</Col>
+            <Col span={6}>Column</Col>
+            <Col span={6}>Column</Col>
+            <Col span={6}>Column</Col>
+          </Row>
+        </div>
         <div>{weatherInfo}</div>
       </div>
     );
