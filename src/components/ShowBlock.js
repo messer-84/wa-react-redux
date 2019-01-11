@@ -32,30 +32,6 @@ class ShowBlock extends Component {
 
     return (
       <div>
-        <div>
-          <br/>
-          <h2>Datepicker</h2>
-          <DatePicker/>
-        </div>
-        <div>
-          <br/>
-          <h2>Button</h2>
-          <Button className="ant-btn-primary" type="primary">Primary</Button>
-        </div>
-        <div>
-          <br/>
-          <Icon type="caret-right" style={{ fontSize: 20, color: '#08c' }} />
-        </div>
-        <div>
-          <br/>
-          <h2>Grid</h2>
-          <Row gutter={16}>
-            <Col span={6}>Column</Col>
-            <Col span={6}>Column</Col>
-            <Col span={6}>Column</Col>
-            <Col span={6}>Column</Col>
-          </Row>
-        </div>
         <div>{weatherInfo}</div>
       </div>
     );
